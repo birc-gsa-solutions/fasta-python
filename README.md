@@ -64,3 +64,4 @@ bar tgcatgca
 where the space between the sequence name and the sequence is a single tab.
 
 You can test your program by running the `test-fasta-recs.sh` script in the root directory of the repository. It will compare the output of your `fasta-recs` program against the expected output.
+
