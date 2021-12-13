@@ -41,7 +41,26 @@ ca
 
 then there are two records, the first has the name `foo` and sequence `acgtacgt` and the second has the name `bar` and the sequence `tgcatgca`.
 
-## Exercise: Extracting records
+## Exercise: Listing records
 
-Write a program, `fasta-recs`, that takes a Simple-FASTA file as input and outputs one record per line, with the header followed by a tab and then the sequence.
+Write a program, `fasta-recs`, that takes a Simple-FASTA file as input and outputs one record per line, with the header followed by a tab and then the sequence, i.e, the Simple-FASTA file
 
+```
+> foo
+acgt
+acgt
+>bar
+tgcatg
+  ca
+```
+
+should be output as
+
+```
+foo acgtacgt
+bar tgcatgca
+```
+
+where the space between the sequence name and the sequence is a single tab.
+
+You can test your program by running the `test-fasta-recs.sh` script in the root directory of the repository. It will compare the output of your `fasta-recs` program against the expected output.
