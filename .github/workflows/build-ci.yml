@@ -1,0 +1,17 @@
+name: PyTest
+
+on: [push]
+
+jobs:
+  make-testing:
+    name: PyTest checking
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out repository
+        uses: actions/checkout@v2
+
+      - name: Building project
+        uses: ./.github/actions/build
+
+      - name: Checking
+        run:  python3 -m pytest src
