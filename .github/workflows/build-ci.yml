@@ -14,4 +14,5 @@ jobs:
         uses: ./.github/actions/build
 
       - name: Checking
-        run:  python3 -m pytest src
+        run:  ls src/test_*.py 2> /dev/null && python3 -m pytest src
+        shell: bash
