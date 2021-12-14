@@ -3,7 +3,7 @@
 success=1
 for f in test-data/*.fa; do
     if ! cmp -s <(./fasta-recs $f) $f-fasta-recs-expected; then
-        echo $f "did not produce the expected output"
+        echo "./fasta-recs $f did not produce the expected output"
         diff <(./fasta-recs $f) $f-fasta-recs-expected
         echo
         success=0
@@ -12,4 +12,6 @@ done
 
 if (( success == 1 )); then
     echo "Success."
+else
+    exit 2
 fi

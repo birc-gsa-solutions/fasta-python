@@ -16,7 +16,7 @@ A Simple-FASTA file is a plain text file that consists of one or more records, w
 
 In a regular FASTA file, the header can contain various meta-information about a sequence, but in Simple-FASTA, it will just be the name of the sequence. You get this name by removing the `>` character and any leading or trailing white-space. So, if the header is `> foo `, then the name is just `foo`, not `> foo `, and not `>foo`. Just `foo`. If the header is `> foo bar`, the name is `foo bar`, because we only skip leading and trailing spaces, not spaces in the middle of the string.
 
-The sequence is all the lines that follow the header, until we either see a new header, recognisable by a `>` at the beginning of a line, or the end of the file. Spaces are not considered part of the sequence, so you should remove those and concatenate the lines.
+The sequence is all the lines that follow the header, until we either see a new header, recognisable by a `>` at the beginning of a line, or the end of the file. Newlines are not considered part of the sequence, so you should remove those and concatenate the lines.
 
 For example, if we have the header
 
@@ -43,7 +43,7 @@ then there are two records, the first has the name `foo` and sequence `acgtacgt`
 
 ## Exercise: Listing records
 
-Write a program, `fasta-recs`, that takes a Simple-FASTA file as input and outputs one record per line, with the header followed by a tab and then the sequence, i.e, the Simple-FASTA file
+Write a program, `fasta-recs`, that takes a Simple-FASTA file as input and outputs to `stdout` one record per line, with the header followed by a tab and then the sequence, i.e, the Simple-FASTA file
 
 ```
 > foo
@@ -51,7 +51,7 @@ acgt
 acgt
 >bar
 tgcatg
-  ca
+ca
 ```
 
 should be output as
@@ -65,3 +65,37 @@ where the space between the sequence name and the sequence is a single tab.
 
 You can test your program by running the `test-fasta-recs.sh` script in the root directory of the repository. It will compare the output of your `fasta-recs` program against the expected output.
 
+## Exercise: Extracting subsequences
+
+Once we start searching in genomic sequences, it can be helpful to have a tool that extracts a subsequence from a Simple-FASTA file. With such a tool, or code to a similar effect, we can get the genomic sequence at a given position and check that it matches the pattern we searched for.
+
+As a warmup exercise for that, you should write a tool, `get-subseqs`, that takes one or two files as input. The first should be a Simple-FASTA file and the second should be a file containing coordinates for sub-sequences as described below. If the second file isn't provided on the command-line, or if it is provided as `-`, you should use `stdin`.
+
+The coordinates file consists of zero or more lines of coordinates, where coordinates consist of three tab-separated values: First the sequence name (the name of the Simple-FASTA record), then the start coordinate, and finally the end-coordinate. The coordinates are 1-indexed, so if you program in a language that uses 0-indexing, you need to subtract one from these. You can assume `start <= end`.
+
+The output, written to `stdout`, should be one sub-sequence per line. A sub-sequence goes from the start coordinate to, but not including, the end-coordinate.
+
+If the Simple-FASTA file is
+
+```
+> foo
+acgtacgt
+>bar
+tgcatgca
+```
+
+and the coordinates are
+
+```
+foo 1 5
+bar 3 6
+```
+
+the output should be
+
+```
+acgt
+cat
+```
+
+You can use the script `test-get-subseqs.sh` to test your program.
