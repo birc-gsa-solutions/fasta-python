@@ -4,7 +4,7 @@ import sys
 
 def main():
     argparser = argparse.ArgumentParser(
-        description="Extract Simple-FASTA records"
+        description="Extract sub-sequences from a Simple-FASTA file"
     )
     argparser.add_argument(
         "fasta",
