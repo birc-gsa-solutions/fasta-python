@@ -1,3 +1,8 @@
+[![PyTest](https://github.com/birc-gsa-solutions/fasta-python/actions/workflows/build-ci.yml/badge.svg)](https://github.com/birc-gsa-solutions/fasta-python/actions/workflows/build-ci.yml)
+[![Test fasta-recs tool](https://github.com/birc-gsa-solutions/fasta-python/actions/workflows/test-fasta-recs.yml/badge.svg)](https://github.com/birc-gsa-solutions/fasta-python/actions/workflows/test-fasta-recs.yml)
+[![Test fasta-recs tool](https://github.com/birc-gsa-solutions/fasta-python/actions/workflows/test-get-subseqs.yml/badge.svg)](https://github.com/birc-gsa-solutions/fasta-python/actions/workflows/test-get-subseqs.yml)
+
+
 # FASTA parser exercises
 
 Genome sequences are usually stored in so-called [FASTA files](https://en.wikipedia.org/wiki/FASTA_format), and we will use the same in this class. However, we will not need to full specification of this file format, since genomic data is commonly stored in files that do not use the full set of features.
