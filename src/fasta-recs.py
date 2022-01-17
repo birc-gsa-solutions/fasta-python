@@ -1,4 +1,5 @@
 import argparse
+from fasta import parse_fasta
 
 
 def main():
@@ -11,7 +12,13 @@ def main():
     )
     args = argparser.parse_args()
 
-    print(f"Now I need to process the records in {args.fasta}")
+    # parse and output the records.
+    # Python dicts are (currently) ordered in insertion
+    # order, so we get the records out in the order we
+    # read them, which is what we want here.
+    for name, seq in parse_fasta(args.fasta).items():
+        print(name, seq, sep='\t')
+    args.fasta.close()
 
 
 if __name__ == '__main__':
