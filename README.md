@@ -65,6 +65,9 @@ where the space between the sequence name and the sequence is a single tab.
 
 You can test your program by running the `test-fasta-recs.sh` script in the root directory of the repository. It will compare the output of your `fasta-recs` program against the expected output.
 
+In the root of this repository is a script, `fasta-recs` that will run Python on the file `src/fasta-recs.py`, so if you start writing your program from this file, you are good to go.
+
+
 ## Exercise: Extracting subsequences
 
 Once we start searching in genomic sequences, it can be helpful to have a tool that extracts a subsequence from a Simple-FASTA file. With such a tool, or code to a similar effect, we can get the genomic sequence at a given position and check that it matches the pattern we searched for.
@@ -99,3 +102,5 @@ cat
 ```
 
 You can use the script `test-get-subseqs.sh` to test your program.
+
+In the root of this repository is a script, `get-subsets` that will run Python on the file `src/get-subseqs.py`, so if you start writing your program from this file, you are good to go.
