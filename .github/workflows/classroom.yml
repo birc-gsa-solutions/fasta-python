@@ -1,0 +1,25 @@
+name: GitHub Classroom Workflow
+on: [push]
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  testing:
+    name: Autograding
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out repository
+        uses: actions/checkout@v2
+
+      - name: Building project
+        uses: ./.github/actions/build
+
+      - name: Running fasta recs test
+        run:  ./.test/test-fasta-recs.sh
+        shell: bash
+
+      - name: Running get subseqs test
+        run:  ./.test/test-get-subseqs.sh
+        shell: bash
