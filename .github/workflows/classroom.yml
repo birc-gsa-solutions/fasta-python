@@ -16,9 +16,6 @@ jobs:
       - name: Building project
         uses: ./.github/actions/build
 
-      - name: Unit testing
-        uses: ./.github/actions/unit-testing
-
       - name: Running fasta recs test
         run:  ./.test/test-fasta-recs.sh
         shell: bash
