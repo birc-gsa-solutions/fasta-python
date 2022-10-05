@@ -17,10 +17,10 @@ jobs:
         uses: ./.github/actions/build
 
       - name: GSA testing
-        with:
-          files: ".gsa/gsa-test.yml"
         run: echo Excellent
         shell: bash
+        with:
+          files: ".gsa/gsa-test.yml"
 
       - name: Running fasta recs test
         run:  ./.test/test-fasta-recs.sh
