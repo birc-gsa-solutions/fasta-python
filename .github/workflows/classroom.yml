@@ -15,22 +15,3 @@ jobs:
 
       - name: Building project
         uses: ./.github/actions/build
-
-      - name: Check if we should run GSA tests
-        uses: andstor/file-existence-action@v1
-        with:
-          files: .gsa/gsa-test.yml 
-                 ./.github/actions/gsa-test/action.yml
-
-      - name: GSA testing
-        if: success()
-        run: echo Excellent
-        shell: bash
-        
-      - name: Running fasta recs test
-        run:  ./.test/test-fasta-recs.sh
-        shell: bash
-
-      - name: Running get subseqs test
-        run:  ./.test/test-get-subseqs.sh
-        shell: bash
