@@ -15,3 +15,25 @@ jobs:
 
       - name: Building project
         uses: ./.github/actions/build
+
+      - name: Unit testing
+        uses: ./.github/actions/unit-testing
+
+      - name: Check if we should run GSA tests
+        uses: andstor/file-existence-action@v1
+        with:
+          files: .gsa/gsa-test.yml 
+                 ./.github/actions/gsa-test/action.yml
+
+      - name: GSA testing
+        if: success()
+        uses: ./.github/actions/gsa-test
+        
+      - name: Check if there are project-specific tests
+        uses: andstor/file-existence-action@v1
+        with:
+          files: ./.github/actions/project-test/action.yml
+
+      - name: Project testing
+        if: success()
+        uses: ./.github/actions/project-test
