@@ -24,6 +24,7 @@ jobs:
         with:
           files: .gsa/gsa-test.yml 
                  ./.github/actions/gsa-test/action.yml
+        allow_failure: true
 
       - name: GSA testing
         if: success()
