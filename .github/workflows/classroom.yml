@@ -23,8 +23,7 @@ jobs:
         id: gsa_files
         uses: andstor/file-existence-action@v1
         with:
-          files: .gsa/gsa-test.yml 
-                 ./.github/actions/gsa-test/action.yml
+          files: ./.github/actions/gsa-test/action.yml
         
       - name: GSA testing
         if: steps.gsa_files.outputs.files_exists == 'true'
